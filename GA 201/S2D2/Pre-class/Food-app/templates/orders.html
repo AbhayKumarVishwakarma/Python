@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Orders</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+    <h1>Orders</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Customer Name</th>
+            <th>Dish ID</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order['orderId'] }}</td>
+            <td>{{ order['customerName'] }}</td>
+            <td>{{ order['dishId'] }}</td>
+            <td>{{ order['status'] }}</td>
+            <td>
+                <a href="/orders/update/{{ order['orderId'] }}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/orders/create">Create New Order</a>
+</body>
+
+</html>

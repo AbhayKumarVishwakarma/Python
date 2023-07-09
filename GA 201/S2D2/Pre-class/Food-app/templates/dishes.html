@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dishes</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1>Dishes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Availability</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for dish in dishes %}
+            <tr>
+                <td>{{dish['id']}}</td>
+                <td>{{dish['name']}}</td>
+                <td>{{dish['price']}}</td>
+                <td>{{dish['availability']}}</td>
+                <td>
+                    <a href="/dishes/update/{{ dish['id'] }}">Update</a>
+                    <a href="/dishes/delete/{{ dish['id'] }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    <a href="/dishes/create">Create New Dish</a>
+</body>
+
+</html>

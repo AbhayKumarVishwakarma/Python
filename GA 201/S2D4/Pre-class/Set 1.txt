@@ -1,0 +1,132 @@
+**Problem 1:**
+
+- **Prerequisite**: Understand creating tables in SQL / collections in MongoDB
+- **Problem**: Create a **`Customers`** table / collection with the following fields: **`id`** (unique identifier), **`name`**, **`email`**, **`address`**, and **`phone_number`**.
+
+ans - db.createCollection("Customers")
+
+
+
+**Problem 2:**
+
+- **Prerequisite**: Understand inserting data into SQL tables / MongoDB collections
+- **Problem**: Insert five rows / documents into the **`Customers`** table / collection with data of your choice.
+
+ans - db.Customers.insertMany([ { id: "1", name: "John Doe", email: "john@example.com", address: "123 Main St", phone_number: "123-456-7890" }, { id: "2", name: "Jane Smith", email: "jane@example.com", address: "456 Elm St", phone_number: "987-654-3210" }, { id: "3", name: "Alice Johnson", email: "alice@example.com", address: "789 Oak St", phone_number: "456-123-7890" }, { id: "4", name: "Bob Williams", email: "bob@example.com", address: "321 Pine St", phone_number: "789-123-4560" }, { id: "5", name: "Sarah Brown", email: "sarah@example.com", address: "654 Cedar St", phone_number: "012-345-6789" } ])
+
+
+
+**Problem 3:**
+
+- **Prerequisite**: Understand basic data fetching in SQL / MongoDB
+- **Problem**: Write a query to fetch all data from the **`Customers`** table / collection.
+
+ans - db.Customers.find({})
+
+
+
+**Problem 4:**
+
+- **Prerequisite**: Understand how to select specific fields in SQL / MongoDB
+- **Problem**: Write a query to select only the **`name`** and **`email`** fields for all customers.
+
+ans - db.Customers.find({}, { name: 1, email: 1 });
+
+
+
+**Problem 5:**
+
+- **Prerequisite**: Understand basic WHERE clause in SQL / MongoDB's find method
+- **Problem**: Write a query to fetch the customer with the **`id`** of 3.
+
+ans - db.Customers.find({id:"3"})
+
+
+
+**Problem 6:**
+
+- **Prerequisite**: Understand using string patterns in SQL (LIKE clause) / using regex in MongoDB
+- **Problem**: Write a query to fetch all customers whose **`name`** starts with 'A'.
+
+ans - db.Customers.find({ name: /^A/ });
+
+
+
+**Problem 7:**
+
+- **Prerequisite**: Understand how to order data in SQL / MongoDB
+- **Problem**: Write a query to fetch all customers, ordered by **`name`** in descending order.
+
+ans - db.Customers.find().sort({ name: -1 });
+
+
+
+**Problem 8:**
+
+- **Prerequisite**: Understand data updating in SQL / MongoDB
+- **Problem**: Write a query to update the **`address`** of the customer with **`id`** 4.
+
+ans - db.Customers.updateOne({ id: "4" }, { $set: { address: "123 Yak ut California" } });
+
+
+
+**Problem 9:**
+
+- **Prerequisite**: Understand how to limit results in SQL / MongoDB
+- **Problem**: Write a query to fetch the top 3 customers when ordered by **`id`** in ascending order.
+
+ans - db.Customers.find().sort({ id: 1 }).limit(3);
+
+
+
+**Problem 10:**
+
+- **Prerequisite**: Understand data deletion in SQL / MongoDB
+- **Problem**: Write a query to delete the customer with **`id`** 2.
+
+ans - db.Customers.deleteOne({ id: "2" });
+
+
+
+**Problem 11:**
+
+- **Prerequisite**: Understand how to count rows / documents in SQL / MongoDB
+- **Problem**: Write a query to count the number of customers.
+
+ans - db.Customers.countDocuments();
+
+
+
+**Problem 12:**
+
+- **Prerequisite**: Understand how to skip rows / documents in SQL / MongoDB
+- **Problem**: Write a query to fetch all customers except the first two when ordered by **`id`** in ascending order.
+
+ans - db.Customers.find().sort({ id: 1 }).skip(2);
+
+
+
+**Problem 13:**
+
+- **Prerequisite**: Understand filtering with multiple conditions in SQL / MongoDB
+- **Problem**: Write a query to fetch all customers whose **`id`** is greater than 2 and **`name`** starts with 'B'.
+
+ans - db.Customers.find({ id: { $gt: '2' }, name: /^B/ });
+
+
+
+**Problem 14:**
+
+- **Prerequisite**: Understand how to use OR conditions in SQL / MongoDB
+- **Problem**: Write a query to fetch all customers whose **`id`** is less than 3 or **`name`** ends with 's'.
+
+ans - db.Customers.find({ $or: [{ id: { $lt: 3 } }, { name: /s$/ }] });
+
+
+
+**Problem 15:**
+
+- **Prerequisite**: Understand how to use NULL checks in SQL / MongoDB
+- **Problem**: Write a query to fetch all customers where the **`phone_number`** field is not set or is null.
+
+ans - db.Customers.find({ $or: [{ phone_number: { $exists: false } }, { phone_number: null }] });

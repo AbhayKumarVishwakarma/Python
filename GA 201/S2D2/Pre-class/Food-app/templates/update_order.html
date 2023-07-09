@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Order</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Update Order</h1>
+    <form action="/orders/update/{{ o['orderId'] }}" method="post">
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" required><br>
+
+        <br>
+        <input type="submit" value="Update Order">
+    </form>
+</body>
+</html>

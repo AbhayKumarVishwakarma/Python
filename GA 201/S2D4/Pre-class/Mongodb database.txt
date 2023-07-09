@@ -1,0 +1,253 @@
+mydb> show tables
+Customers
+mydb> db.Customers.insertMany([ { id: "1", name: "John Doe", email: "john@example.com", address: "123 Main St", phone_number: "123-456-7890" }, { id: "2", name: "Jane Smith", email: "jane@example.com", address: "456 Elm St", phone_number: "987-654-3210" }, { id: "3", name: "Alice Johnson", email: "alice@example.com", address: "789 Oak St", phone_number: "456-123-7890" }, { id: "4", name: "Bob Williams", email: "bob@example.com", address: "321 Pine St", phone_number: "789-123-4560" }, { id: "5", name: "Sarah Brown", email: "sarah@example.com", address: "654 Cedar St", phone_number: "012-345-6789" } ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64a7a0151dfeb3aaf19be388"),
+    '1': ObjectId("64a7a0151dfeb3aaf19be389"),
+    '2': ObjectId("64a7a0151dfeb3aaf19be38a"),
+    '3': ObjectId("64a7a0151dfeb3aaf19be38b"),
+    '4': ObjectId("64a7a0151dfeb3aaf19be38c")
+  }
+}
+mydb> db.Customers.find({})
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be388"),
+    id: '1',
+    name: 'John Doe',
+    email: 'john@example.com',
+    address: '123 Main St',
+    phone_number: '123-456-7890'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be389"),
+    id: '2',
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    address: '456 Elm St',
+    phone_number: '987-654-3210'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38a"),
+    id: '3',
+    name: 'Alice Johnson',
+    email: 'alice@example.com',
+    address: '789 Oak St',
+    phone_number: '456-123-7890'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38b"),
+    id: '4',
+    name: 'Bob Williams',
+    email: 'bob@example.com',
+    address: '321 Pine St',
+    phone_number: '789-123-4560'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38c"),
+    id: '5',
+    name: 'Sarah Brown',
+    email: 'sarah@example.com',
+    address: '654 Cedar St',
+    phone_number: '012-345-6789'
+  }
+]
+mydb> db.Customers.find({}, { name: 1, email: 1 });
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be388"),
+    name: 'John Doe',
+    email: 'john@example.com'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be389"),
+    name: 'Jane Smith',
+    email: 'jane@example.com'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38a"),
+    name: 'Alice Johnson',
+    email: 'alice@example.com'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38b"),
+    name: 'Bob Williams',
+    email: 'bob@example.com'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38c"),
+    name: 'Sarah Brown',
+    email: 'sarah@example.com'
+  }
+]
+mydb> db.Customers.find({id:"3"})
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38a"),
+    id: '3',
+    name: 'Alice Johnson',
+    email: 'alice@example.com',
+    address: '789 Oak St',
+    phone_number: '456-123-7890'
+  }
+]
+mydb> db.Customers.find({ name: /^A/ });
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38a"),
+    id: '3',
+    name: 'Alice Johnson',
+    email: 'alice@example.com',
+    address: '789 Oak St',
+    phone_number: '456-123-7890'
+  }
+]
+mydb> db.Customers.find().sort({ name: -1 });
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38c"),
+    id: '5',
+    name: 'Sarah Brown',
+    email: 'sarah@example.com',
+    address: '654 Cedar St',
+    phone_number: '012-345-6789'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be388"),
+    id: '1',
+    name: 'John Doe',
+    email: 'john@example.com',
+    address: '123 Main St',
+    phone_number: '123-456-7890'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be389"),
+    id: '2',
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    address: '456 Elm St',
+    phone_number: '987-654-3210'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38b"),
+    id: '4',
+    name: 'Bob Williams',
+    email: 'bob@example.com',
+    address: '321 Pine St',
+    phone_number: '789-123-4560'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38a"),
+    id: '3',
+    name: 'Alice Johnson',
+    email: 'alice@example.com',
+    address: '789 Oak St',
+    phone_number: '456-123-7890'
+  }
+]
+mydb> db.Customers.updateOne({ id: "4" }, { $set: { address: "123 Yak ut California" } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.Customers.find().sort({ id: 1 }).limit(3);
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be388"),
+    id: '1',
+    name: 'John Doe',
+    email: 'john@example.com',
+    address: '123 Main St',
+    phone_number: '123-456-7890'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be389"),
+    id: '2',
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    address: '456 Elm St',
+    phone_number: '987-654-3210'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38a"),
+    id: '3',
+    name: 'Alice Johnson',
+    email: 'alice@example.com',
+    address: '789 Oak St',
+    phone_number: '456-123-7890'
+  }
+]
+mydb> db.Customers.deleteOne({ id: "2" });
+{ acknowledged: true, deletedCount: 1 }
+mydb> db.Customers.countDocuments();
+4
+mydb> db.Customers.find().sort({ id: 1 }).skip(2);
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38b"),
+    id: '4',
+    name: 'Bob Williams',
+    email: 'bob@example.com',
+    address: '123 Yak ut California',
+    phone_number: '789-123-4560'
+  },
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38c"),
+    id: '5',
+    name: 'Sarah Brown',
+    email: 'sarah@example.com',
+    address: '654 Cedar St',
+    phone_number: '012-345-6789'
+  }
+]
+mydb> db.Customers.find({ id: { $gt: '2' }, name: /^B/ });
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38b"),
+    id: '4',
+    name: 'Bob Williams',
+    email: 'bob@example.com',
+    address: '123 Yak ut California',
+    phone_number: '789-123-4560'
+  }
+]
+mydb> db.Customers.find({ $or: [ { _id: { $lt: ObjectId("3") } }, { name: { $regex: /s$/ } } ] });
+BSONError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+mydb> db.Customers.find({ $or: [{ id: { $lt: 3 } }, { name: /s$/ }] });
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38b"),
+    id: '4',
+    name: 'Bob Williams',
+    email: 'bob@example.com',
+    address: '123 Yak ut California',
+    phone_number: '789-123-4560'
+  }
+]
+mydb> db.Customers.find({ phone_number: { $exists: false } });
+
+mydb> db.Customers.updateOne({ id: "5" }, { $set: { phone_number: null } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+mydb> db.Customers.find({ $or: [{ phone_number: { $exists: false } }, { phone_number: null }] });
+[
+  {
+    _id: ObjectId("64a7a0151dfeb3aaf19be38c"),
+    id: '5',
+    name: 'Sarah Brown',
+    email: 'sarah@example.com',
+    address: '654 Cedar St',
+    phone_number: null
+  }
+]
+mydb>
