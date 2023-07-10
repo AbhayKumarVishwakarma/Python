@@ -1,4 +1,4 @@
-from main import factorial
+from math import factorial
 
 
 def add(a, b):
