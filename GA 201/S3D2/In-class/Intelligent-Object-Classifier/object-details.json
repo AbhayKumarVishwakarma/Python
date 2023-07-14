@@ -1,0 +1,21 @@
+{
+    "nothing": {
+        "message": "Noting is showing"
+    },
+    "human":{
+        "Scientific name": "Homo sapiens",
+        "Height": "1.7 m (Male), 1.6 m (Female)",
+        "Eats": "Potato, Corn, Wheat, Oat, Boletus reticulatus",
+        "Order": "Primates",
+        "Family": "Hominidae",
+        "Kingdom": "Animalia",
+        "Details": "Humans are the most common and widespread species of primate. A great ape characterized by their bipedalism and high intelligence, humans have a large brain and resulting cognitive skills that enable them to thrive in varied environments and develop complex societies and civilizations."
+    },
+    "atomic habits": {
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "publisher": "Penguin Random House",
+        "publicationYear": "2018",
+        "summary": "Atomic Habits offers a practical framework for creating positive habits and breaking bad ones. The book focuses on the concept of small, incremental changes that can lead to remarkable results over time. James Clear presents strategies to build and reinforce good habits while eliminating the ones that hinder personal growth. By understanding the science behind habit formation and implementing the suggested techniques, readers can transform their lives and achieve long-term success."
+    }
+}

@@ -1,0 +1,116 @@
+body {
+    font-family: "verdana", "sans-serif";
+    font-size: 15px;
+    color: #1c1c1c;
+}
+
+/* Reset default margin and padding */
+body,
+h1,
+h2,
+p,
+video {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styles for header, main, and footer */
+header,
+main,
+footer {
+    padding: 20px;
+}
+
+/* Styling for header */
+header {
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#startButton{
+    width: 85px;
+    height: 33px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(12, 132, 12);
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#startButton:hover {
+  background-color: rgb(103, 224, 103);
+}
+
+#stopButton{
+    width: 85px;
+    height: 33px;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+
+#stopButton:hover {
+  background-color: rgb(220, 159, 159);
+}
+
+/* Styling for video section */
+.video-section {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    /* border: 1px solid black; */
+}
+
+.video-section>div{
+    height: 300px;
+    /* border: 1px solid green; */
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+/* Styling for video element */
+#videoElement {
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Styling for classification section */
+.classification-section {
+    width: 70%;
+    margin: auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.classification-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Styling for classification result */
+#classificationResult, #classificationDetails {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Styling for footer */
+footer {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 10px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Intelligent Object Classifier</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Intelligent Object Classifier</h1>
+        </div>
+    
+        <div class="button-section">
+            <button id="startButton" role="button" onclick="startClassifier()">Start</button>
+            <button id="stopButton" onclick="stopClassifier()">Stop</button>
+        </div>
+    </header>
+    <main>
+
+        <section class="video-section">
+
+            <div id="video-cont">
+                <video id="videoElement" autoplay ></video>
+            </div>
+
+
+            <div class="classification-results">
+                <h2>Classification Results</h2>
+                <div id="classificationResult"></div>
+            </div>
+
+        </section>
+        <section class="classification-section">
+            <!-- <h2>Classification Results</h2> -->
+            <div id="classificationDetails"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Company Name</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
