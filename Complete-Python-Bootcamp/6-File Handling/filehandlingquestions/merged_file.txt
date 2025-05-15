@@ -1,0 +1,4 @@
+this is stats file
+readint lines, words, and characters
+this is reverse file
+read content from reverse file

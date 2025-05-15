@@ -1,0 +1,3 @@
+this is log file
+this is appended content
+this is appended content

@@ -1,0 +1,11 @@
+The split_file function is designed to divide a large text file into smaller files, each containing a fixed number of lines. It takes two parameters: filename, which is the name of the input file (e.g., "large.txt"), and lines_per_file, which is the number of lines each output file should contain.
+
+The function begins by opening the specified file in read mode using a with block to ensure proper file handling. It then reads all lines of the file into a list called lines using file.readlines(). This list stores each line of the file as a string, preserving the order in which they appear.
+
+A for loop is then used to iterate through the lines list in chunks. The loop starts from index 0 and increases by lines_per_file each time, ensuring that each iteration processes a separate block of lines. The loop variable i marks the start index of each block.
+
+Within the loop, another with block opens a new output file in write mode. The name of the output file is dynamically generated based on the current chunk number. For example, the first chunk would be saved as "large.txt_part1.txt", the second as "large.txt_part2.txt", and so on. The expression i // lines_per_file + 1 calculates the current part number.
+
+The writelines method writes the slice of lines (lines[i:i + lines_per_file]) to the new file. This process repeats until all lines from the original file have been written to separate smaller files.
+
+This approach is simple and effective for moderately sized files. However, for very large files, using readlines() could consume significant memory. In such cases, reading and writing one line at a time is more memory-efficient.

@@ -1,0 +1,2 @@
+this is document file
+have to read how many words in the file
